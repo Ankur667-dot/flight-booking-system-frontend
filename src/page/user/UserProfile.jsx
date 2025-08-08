@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { getUserProfile, getCurrentFlight, getPreviousFlights } from '../../api/UserProfileApi';
 
-const UserProfile = () => {
-  const userId = 1;
+const UserProfile = (userId) => {
+  // const userId = 1;
   const [user, setUser] = useState({});
   const [currentFlight, setCurrentFlight] = useState({});
   const [previousFlights, setPreviousFlights] = useState([]);

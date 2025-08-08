@@ -1,0 +1,315 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0f0f0f;
+  color: #ffffff;
+}
+
+h2, h4 {
+  color: #00ffff;
+}
+
+
+.booking-container {
+  display: flex;
+  gap: 40px;
+  padding: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.booking-form {
+  flex: 1;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.booking-form input[type="text"],
+.booking-form input[type="email"] {
+  display: block;
+  margin-bottom: 15px;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  font-size: 15px;
+  transition: 0.3s ease;
+}
+
+.booking-form input:focus {
+  outline: none;
+  background-color: #2a2a2a;
+  box-shadow: 0 0 0 2px #00ffff88;
+}
+
+
+.booking-summary {
+  background: rgba(0, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  border-left: 4px solid #00ffff;
+  animation: slideIn 1s ease-in-out;
+}
+
+
+.booking-form button {
+  margin-top: 20px;
+  padding: 14px 28px;
+  background-color: #00ffff;
+  border: none;
+  border-radius: 30px;
+  color: #000;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.booking-form button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00ffff;
+}
+
+
+.seat-map {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+  animation: fadeIn 1s ease-in-out;
+}
+
+
+.airplane {
+  display: grid;
+  grid-template-columns: repeat(7, 50px);
+  justify-content: center;
+  gap: 12px 10px;
+  margin-top: 30px;
+  position: relative;
+}
+
+
+.airplane .aisle {
+  pointer-events: none;
+}
+
+
+.seat {
+  padding: 14px 0;
+  text-align: center;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  user-select: none;
+}
+
+.seat.booked {
+  background-color: #ff4c4c;
+  color: white;
+  cursor: not-allowed;
+}
+
+.seat.selected {
+  background-color: #00ff9d;
+  color: black;
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #00ff9d;
+}
+
+.seat.available {
+  background-color: #444;
+  color: #fff;
+  cursor: pointer;
+}
+
+.seat.available:hover {
+  background-color: #666;
+  transform: scale(1.05);
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+/* body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0f0f0f;
+  color: #ffffff;
+}
+
+h2, h3, h4 {
+  color: #00ffff;
+}
+
+.booking-container {
+  display: flex;
+  gap: 40px;
+  padding: 30px;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.booking-form {
+  flex: 0.8;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+  animation: fadeIn 1s ease-in-out;
+  min-width: 320px;
+}
+
+.booking-form input[type="text"],
+.booking-form input[type="email"] {
+  display: block;
+  margin-bottom: 15px;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  font-size: 15px;
+  transition: 0.3s ease;
+}
+
+.booking-form input:focus {
+  outline: none;
+  background-color: #2a2a2a;
+  box-shadow: 0 0 0 2px #00ffff88;
+}
+
+.booking-summary {
+  background: rgba(0, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  border-left: 4px solid #00ffff;
+  animation: slideIn 1s ease-in-out;
+}
+
+.booking-form button {
+  margin-top: 20px;
+  padding: 14px 28px;
+  background-color: #00ffff;
+  border: none;
+  border-radius: 30px;
+  color: #000;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.booking-form button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00ffff;
+}
+
+.seat-map-wrapper {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.seat-map {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.flight-info {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 15px;
+}
+
+.airplane {
+  display: grid;
+  grid-template-columns: repeat(7, 50px);
+  justify-content: center;
+  gap: 12px 10px;
+  margin-top: 20px;
+}
+
+.airplane .aisle {
+  pointer-events: none;
+}
+
+.seat {
+  padding: 14px 0;
+  text-align: center;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  user-select: none;
+}
+
+.seat.booked {
+  background-color: #ff4c4c;
+  color: white;
+  cursor: not-allowed;
+}
+
+.seat.selected {
+  background-color: #00ff9d;
+  color: black;
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #00ff9d;
+}
+
+.seat.available {
+  background-color: #444;
+  color: #fff;
+  cursor: pointer;
+}
+
+.seat.available:hover {
+  background-color: #666;
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0px); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0px); }
+} */

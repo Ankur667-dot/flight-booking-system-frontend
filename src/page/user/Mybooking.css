@@ -1,4 +1,4 @@
-.ticket-container {
+/* .ticket-container {
   background-color: #f0f4f8;
   min-height: 100vh;
   padding: 40px;
@@ -86,4 +86,399 @@
 .barcode img {
   max-width: 100%;
   height: 60px;
+} */
+
+/* .ticket-container {
+    background: linear-gradient(-45deg, #1e1e2f, #2c2c3a, #1e1e2f, #26263a);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    min-height: 100vh;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    box-sizing: border-box;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Ticket */
+.ticket {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    background-color: #2b2b3b;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    width: 900px;
+    max-width: 100%;
+    animation: fadeIn 0.6s ease-in-out;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+
+.ticket:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 35px 60px rgba(0, 0, 0, 0.7);
+}
+
+.ticket-left {
+    flex: 2;
+    padding: 40px;
+    background-color: #2b2b3b;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.ticket-header {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: right;
+    margin-bottom: 30px;
+}
+
+.ticket-route {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #444;
+    border-bottom: 1px solid #444;
+    padding: 20px 0;
+}
+
+.route-section {
+    text-align: center;
+}
+
+.airport-code {
+    font-size: 36px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.city {
+    font-size: 14px;
+    color: #bbbbbb;
+    margin-top: 4px;
+}
+
+.plane-icon {
+    font-size: 28px;
+    color: #1abc9c;
+    transition: transform 0.3s ease;
+}
+
+.ticket:hover .plane-icon {
+    transform: translateX(5px);
+}
+
+.ticket-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.detail-block {
+    width: 48%;
+    margin-bottom: 20px;
+}
+
+.label {
+    font-size: 12px;
+    color: #999;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.value {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* Right Side */
+.ticket-right {
+    flex: 1;
+    background-color: #1e1e2e;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 2px dashed #555;
+}
+
+.ticket-right .flight-code {
+    align-self: flex-end;
+    font-weight: 600;
+    font-size: 18px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.ticket-right .passenger-info {
+    text-align: center;
+}
+
+.ticket-right .passenger-info .label {
+    font-size: 12px;
+    color: #888;
+}
+
+.ticket-right .passenger-info .value {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.ticket-right .barcode img {
+    width: 120px;
+    height: 50px;
+    object-fit: cover;
+    filter: grayscale(100%);
+    margin-top: 20px;
+    transition: filter 0.3s ease;
+}
+
+.ticket-right .barcode:hover img {
+    filter: grayscale(0%);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .ticket {
+        flex-direction: column;
+    }
+
+    .ticket-left,
+    .ticket-right {
+        padding: 20px;
+    }
+
+    .ticket-right {
+        border-left: none;
+        border-top: 2px dashed #555;
+    }
+
+    .detail-block {
+        width: 100%;
+    }
+
+    .airport-code {
+        font-size: 28px;
+    }
+}
+
+/* Download Button */
+.download-button {
+    background-color: #1abc9c;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.download-button:hover {
+    background-color: #159c85;
+}
+
+/* Wrapper to position button in top-right */
+.download-button-wrapper {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 10;
+} */      
+
+/* Container for the entire ticket */
+.ticket-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f8;
+  min-height: 100vh;
+}
+
+/* Download button */
+.download-button-wrapper {
+  margin-bottom: 20px;
+}
+
+.download-button {
+  background-color: #0077b6;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.download-button:hover {
+  background-color: #005f87;
+}
+
+/* Ticket layout */
+.ticket {
+  display: flex;
+  flex-direction: row;
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  max-width: 800px;
+  width: 100%;
+}
+
+/* LEFT SIDE */
+.ticket-left {
+  flex: 2;
+  padding: 20px;
+  border-right: 2px dashed #ddd;
+}
+
+.ticket-header {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Route section */
+.ticket-route {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.route-section {
+  text-align: center;
+}
+
+.airport-code {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.city {
+  font-size: 14px;
+  color: #666;
+}
+
+.time {
+  font-size: 16px;
+  color: #333;
+  margin-top: 5px;
+}
+
+.plane-icon {
+  font-size: 20px;
+}
+
+/* Ticket details grid */
+.ticket-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 20px;
+}
+
+.detail-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 12px;
+  color: #888;
+}
+
+.value {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  white-space: normal; /* Allow wrapping for multi-passenger names */
+  line-height: 1.4;
+}
+
+/* RIGHT SIDE */
+.ticket-right {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.flight-code {
+  font-size: 24px;
+  font-weight: bold;
+  color: #0077b6;
+  text-align: center;
+}
+
+.passenger-info {
+  margin-top: 20px;
+}
+
+.passenger-info .label {
+  font-size: 12px;
+  color: #888;
+}
+
+.passenger-info .value {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 4px;
+  word-break: break-word;
+}
+
+/* Barcode section */
+.barcode {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.barcode img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .ticket {
+    flex-direction: column;
+  }
+
+  .ticket-left {
+    border-right: none;
+    border-bottom: 2px dashed #ddd;
+  }
 }
