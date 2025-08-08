@@ -47,27 +47,94 @@ const handleSearch = async () => {
       return;
     }
 
-    const formattedDate = `${departureDate} 00:00:00`;
+    const formattedDepartureDate = `${departureDate} 00:00:00`;
 
-    const params = {
-      departureId: fromAirport.id,
-      arrivalId: toAirport.id,
-      departureDate: formattedDate,
-      passengers: travellers,
-    };
-
-    const flights = await searchFlights(params);
-
-    
     setPassengerRecoil(travellers);
     setClassRecoil(travelClass);
 
-    navigate('/flights', { state: { flights } });
+    if (tripType === 'oneway') {
+      const params = {
+        departureId: fromAirport.id,
+        arrivalId: toAirport.id,
+        departureDate: formattedDepartureDate,
+        passengers: travellers,
+      };
+      const flights = await searchFlights(params);
+      navigate('/flights', { state: { flights, tripType } });
+
+    } else if (tripType === 'roundtrip') {
+      if (!returnDate) {
+        alert('Please select a return date.');
+        return;
+      }
+
+      const formattedReturnDate = `${returnDate} 00:00:00`;
+
+      // Outbound flights
+      const outboundParams = {
+        departureId: fromAirport.id,
+        arrivalId: toAirport.id,
+        departureDate: formattedDepartureDate,
+        passengers: travellers,
+      };
+
+      // Return flights
+      const returnParams = {
+        departureId: toAirport.id,
+        arrivalId: fromAirport.id,
+        departureDate: formattedReturnDate,
+        passengers: travellers,
+      };
+
+      const [outboundFlights, returnFlights] = await Promise.all([
+        searchFlights(outboundParams),
+        searchFlights(returnParams)
+      ]);
+
+      navigate('/flights', { state: { outboundFlights, returnFlights, tripType } });
+    }
+
   } catch (error) {
     console.error(error);
     alert('Error searching flights. Please try again.');
   }
 };
+
+// const handleSearch = async () => {
+//   try {
+//     const fromAirport = airports.find(
+//       (airport) => airport.cityName.toLowerCase() === from.trim().toLowerCase()
+//     );
+//     const toAirport = airports.find(
+//       (airport) => airport.cityName.toLowerCase() === to.trim().toLowerCase()
+//     );
+
+//     if (!fromAirport || !toAirport) {
+//       alert('Invalid city names entered.');
+//       return;
+//     }
+
+//     const formattedDate = `${departureDate} 00:00:00`;
+
+//     const params = {
+//       departureId: fromAirport.id,
+//       arrivalId: toAirport.id,
+//       departureDate: formattedDate,
+//       passengers: travellers,
+//     };
+
+//     const flights = await searchFlights(params);
+
+    
+//     setPassengerRecoil(travellers);
+//     setClassRecoil(travelClass);
+
+//     navigate('/flights', { state: { flights } });
+//   } catch (error) {
+//     console.error(error);
+//     alert('Error searching flights. Please try again.');
+//   }
+// };
 
   // const handleSearch = () => {
   //   // search API
@@ -83,6 +150,7 @@ const handleSearch = async () => {
   // };
 
   return (
+    <div className='home-container'>
     <div className="homepage">
       <h2 className="form-title">Book Your Flight</h2>
 
@@ -174,6 +242,8 @@ const handleSearch = async () => {
       </div>
 
       <button className="search-button" onClick={handleSearch}>Search Flights</button>
+    </div>
+
     </div>
   );
 };
